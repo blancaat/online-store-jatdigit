@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>About || Jatdigit e-Commerce</title>
+    <title>About || Jatdigit </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -35,46 +35,7 @@
 
     <!-- Body main wrapper start -->
     <div class="wrapper fixed__footer">
-        <!-- Start Header Style -->
-        <header id="header" class="htc-header header--3 bg__white">
-            <!-- Start Mainmenu Area -->
-            <div id="sticky-header-with-topbar" class="mainmenu__area sticky__header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-2 col-lg-2 col-6">
-                            <div class="logo">
-                                <a th:href="@{/home}">
-                                    <img src="images/logo/uniqlo.png" alt="logo">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Start Mainmenu Area -->
-                        <div class="col-md-8 col-lg-8 d-none d-md-block">
-                            <nav class="mainmenu__nav  d-none d-lg-block">
-                                <ul class="main__menu">
-                                    <li class="drop"><a th:href="@{/home}">Home</a>
-                                    </li>
-                                    <li><a th:href="@{/about}">About</a></li>
-                                    <li class="drop"><a th:href="@{/collections}">Shop</a>
-                                    </li>
-                                    <li><a href="contact.html">contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- End MAinmenu Ares -->
-                        <div class="col-md-2 col-lg-2 col-6">
-                            <ul class="menu-extra">
-                                <li class="search search__open d-none d-sm-block"><span class="ti-search"></span></li>
-                                <li class="cart__menu"><span class="ti-shopping-cart"></span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-            </div>
-            <!-- End Mainmenu Area -->
-        </header>
-        <!-- End Header Style -->
-
+      <div th:replace="header.html :: header"></div>
         <div class="body__overlay"></div>
         <!-- Start Offset Wrapper -->
         <div class="offset__wrapper">
@@ -149,7 +110,7 @@
         </div>
         <!-- End Offset Wrapper -->
         <!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(images/about.jpg) no-repeat scroll center center / cover ;">
+        <div class="ht__bradcaump__area pt--130" style="background: rgba(0, 0, 0, 0) url(images/about.jpg) no-repeat scroll center center / cover ;">
             <div class="ht__bradcaump__wrap">
                 <div class="container">
                     <div class="row">

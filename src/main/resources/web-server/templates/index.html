@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Jatdigit e-Commerce</title>
+    <title>Jatdigit</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -35,47 +35,7 @@
 
     <!-- Body main wrapper start -->
     <div class="wrapper fixed__footer">
-        <!-- Start Header Style -->
-        <header id="header" class="htc-header">
-            <!-- Start Mainmenu Area -->
-            <div id="sticky-header-with-topbar" class="mainmenu__area sticky__header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-2 col-lg-2 col-6">
-                            <div class="logo">
-                                <a th:href="@{/home}"></a>
-                                    <img src="images/logo/uniqlo.png" alt="logo">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Start MAinmenu Area-->
-                        <div class="col-md-8 col-lg-8 d-none d-md-block">
-                            <nav class="mainmenu__nav  d-none d-lg-block">
-                                <ul class="main__menu">
-                                    <li class="drop"><a th:href="@{/home}">Home</a>
-                                    </li>
-                                    <li><a th:href="@{/about}">About</a></li>
-                                    <li class="drop"><a th:href="@{/collections}">Shop</a>
-                                    </li>
-                                    <li><a href="contact.html">contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- End MAinmenu Ares -->
-                        <div class="col-md-2 col-lg-2 col-6">
-                            <ul class="menu-extra">
-                                <li class="search search__open d-none d-sm-block"><span class="ti-search"></span></li>
-                                <li class="cart__menu"><span class="ti-shopping-cart"></span></li>
-                                <li class="toggle__menu d-none d-md-block"><span class="ti-menu"></span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Mainmenu Area -->
-        </header>
-        <!-- End Header Style -->
-
+        <div th:replace="header.html :: header"></div>
         <div class="body__overlay"></div>
         <!-- Start Offset Wrapper -->
         <div class="offset__wrapper">
@@ -107,7 +67,7 @@
                     <div class="off__contact">
                         <div class="logo">
                             <a th:href="@{/home}">
-                                <img src="images/logo/uniqlo.png" alt="logo">
+                                <img src="images/jatdigit.png" alt="logo">
                             </a>
                         </div>
                         <p>Diseños de artesanía digital </p>
@@ -231,7 +191,7 @@
                                             <img src="images/collections/2.jpg" alt="product images">
                                         </a>
                                     </div>
-                                <div class="product__details">
+                                <div class="product__details" align="center">
                                     <h2><a th:href="@{/collections/universe}"> <p style="color:red;">
                                        Universe Without Objects <br>Collection</p></a></h2>
                                 </div>
@@ -244,11 +204,11 @@
                             <div class="product foo">
                                 <div class="product__inner">
                                     <div class="pro__thumb">
-                                        <a th:href="@{/collections/lines}">>
+                                        <a th:href="@{/collections/lines}">
                                           <img src="images/collections/3.jpg" alt="product images">
                                         </a>
                                     </div>
-                                <div class="product__details">
+                                <div class="product__details" align="center">
                                     <h2><a th:href="@{/collections/lines}"> <p style="color:red;"> Lines Collection</p></a></h2>
                                 </div>
                               </div>
