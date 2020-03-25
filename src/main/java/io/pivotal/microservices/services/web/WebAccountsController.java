@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Client controller, fetches Account info from the microservice via
  * {@link WebAccountsService}.
  * 
- * @author Paul Chapman
+ * @author Blanca AT
  */
 @Controller
 public class WebAccountsController {
@@ -40,9 +40,14 @@ public class WebAccountsController {
 		binder.setAllowedFields("accountNumber", "searchText");
 	}
 
-	@RequestMapping("/accounts")
-	public String goHome() {
+	@RequestMapping("/home")
+	public String showHome() {
 		return "index";
+	}
+	
+	@RequestMapping("/about")
+	public String showAbout() {
+		return "about";
 	}
 
 	@RequestMapping("/accounts/{accountNumber}")

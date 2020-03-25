@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Home page controller.
  * 
- * @author Paul Chapman
+ * @author Blanca AT
  */
+
 @Controller
 public class HomeController {
 
