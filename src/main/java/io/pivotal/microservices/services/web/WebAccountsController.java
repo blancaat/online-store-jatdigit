@@ -49,6 +49,11 @@ public class WebAccountsController {
 	public String showAbout() {
 		return "about";
 	}
+	
+	@RequestMapping("/info")
+	public String showInfo() {
+		return "info";
+	}
 
 	@RequestMapping("/accounts/{accountNumber}")
 	public String byNumber(Model model,
