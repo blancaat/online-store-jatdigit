@@ -2,9 +2,9 @@ package io.pivotal.microservices.services;
 
 import java.net.InetAddress;
 
-import io.pivotal.microservices.services.accounts.AccountsServer;
-import io.pivotal.microservices.services.registration.RegistrationServer;
-import io.pivotal.microservices.services.web.WebServer;
+import microservices.services.products.ProductsServer;
+import microservices.services.registration.RegistrationServer;
+import microservices.services.web.WebServer;
 
 /**
  * Allow the servers to be invoked from the command-line. The jar is built with
@@ -62,8 +62,8 @@ public class Main {
         // Determine which role this application will run as
         if (serverName.equals("registration") || serverName.equals("reg")) {
             RegistrationServer.main(args);
-        } else if (serverName.equals("accounts")) {
-            AccountsServer.main(args);
+        } else if (serverName.equals("products")) {
+            ProductsServer.main(args);
         } else if (serverName.equals("web")) {
             WebServer.main(args);
         } else {
