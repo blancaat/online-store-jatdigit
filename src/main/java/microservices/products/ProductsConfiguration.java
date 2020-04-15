@@ -15,7 +15,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
 import java.util.List;
-import ch.qos.logback.classic.Logger;
 
 /**
  * The products Spring configuration.
@@ -24,7 +23,7 @@ import ch.qos.logback.classic.Logger;
  */
 
 @Configuration
-@ComponentScan({"microservices.products.*"})
+@ComponentScan()
 @EntityScan("microservices.products")
 @EnableJpaRepositories("microservices.products")
 @PropertySource("classpath:db-config.properties")

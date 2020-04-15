@@ -13,6 +13,7 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import microservices.exceptions.ProductNotFoundException;
+import microservices.services.web.Product;
 
 /**
  * Hide the access to the microservice inside this local service.
@@ -82,5 +83,10 @@ public class WebAccountsService {
 			throw new ProductNotFoundException(accountNumber);
 		else
 			return account;
+	}
+	
+	public Product findByName(String productName) {
+		return restTemplate.getForObject(serviceUrl + "/products/{productName}",
+				Product.class, productName);
 	}
 }

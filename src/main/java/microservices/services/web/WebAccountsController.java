@@ -1,5 +1,6 @@
 package microservices.services.web;
 
+import microservices.services.web.Product;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -103,4 +104,13 @@ public class WebAccountsController {
 			return ownerSearch(model, searchText);
 		}
 	}
+		
+		@RequestMapping("/products/{productName}")
+		public String byName(Model model,
+				@PathVariable("productName") String productName) {
+			Product product = accountsService.findByName(productName);
+			model.addAttribute("product", product);
+			return "about";
+		}
+	
 }

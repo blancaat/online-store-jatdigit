@@ -1,7 +1,5 @@
 package microservices.products;
 
-import java.util.List;
-import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,9 +40,12 @@ public class ProductsController {
 	 *             If the name is not recognised.
 	 */
 	
-	@RequestMapping("/product/{productName}")
+	@RequestMapping("/products/{productName}")
 	public Product byName(@PathVariable("productName") String productName) {
+		System.out.println("---------------------ANTES-----------------");
+
 		Product product = productRepository.findByName(productName);
+		System.out.println(product);
 		if (product == null)
 			throw new ProductNotFoundException(productName);
 		else {
@@ -52,3 +53,5 @@ public class ProductsController {
 		}
 	}
 }
+	
+

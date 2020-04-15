@@ -11,11 +11,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * Accounts web-server. Works as a microservice client, fetching data from the
- * Account-Service. Uses the Discovery Server (Eureka) to find the microservice.
+ * Online-store web-server. Works as a microservice client, fetching data from the
+ * rest of microservices. Uses the Discovery Server (Eureka) to find them.
  * 
- * @author Paul Chapman
+ * @author Blanca AT
  */
+
 @SpringBootApplication(exclude = { HibernateJpaAutoConfiguration.class, //
         DataSourceAutoConfiguration.class })
 @EnableDiscoveryClient
@@ -23,25 +24,24 @@ import org.springframework.web.client.RestTemplate;
 public class WebServer {
 
     /**
-     * URL uses the logical name of account-service - upper or lower case, doesn't
+     * URL uses the logical name of products-service - upper or lower case, doesn't
      * matter.
      */
-    public static final String ACCOUNTS_SERVICE_URL = "http://ACCOUNTS-SERVICE";
+    public static final String PRODUCTS_SERVICE_URL = "http://PRODUCTS-SERVICE";
 
     /**
-     * Run the application using Spring Boot and an embedded servlet engine.
+     * Run the application using Spring Boot
      * 
      * @param args Program arguments - ignored.
      */
     public static void main(String[] args) {
-        // Tell server to look for web-server.properties or web-server.yml
+		// Configuration according to web-server.yml
         System.setProperty("spring.config.name", "web-server");
         SpringApplication.run(WebServer.class, args);
     }
 
     /**
-     * A customized RestTemplate that has the ribbon load balancer build in. Note
-     * that prior to the "Brixton"
+     * A customized RestTemplate given by Spring to perform HTTP requests.
      * 
      * @return
      */
@@ -58,7 +58,7 @@ public class WebServer {
      */
     @Bean
     public WebAccountsService accountsService() {
-        return new WebAccountsService(ACCOUNTS_SERVICE_URL);
+        return new WebAccountsService(PRODUCTS_SERVICE_URL);
     }
 
     /**
