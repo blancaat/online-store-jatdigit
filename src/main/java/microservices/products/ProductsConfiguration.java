@@ -3,6 +3,7 @@ package microservices.products;
 
 import java.util.Map;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -14,6 +15,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -33,10 +40,11 @@ public class ProductsConfiguration {
 
 	/**
 	 * Creates a database with data. 
+	 * @throws IOException 
 	 */
 	
 	@Bean
-	public DataSource dataSource() {
+	public DataSource dataSource() throws IOException {
 		// Create database T_PRODUCT and add data to Product Database using data.sql file
 		DataSource dataSource = (new EmbeddedDatabaseBuilder()).addScript("classpath:testdb/schema.sql")
 				.addScript("classpath:testdb/data.sql").build();

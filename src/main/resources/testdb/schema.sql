@@ -1,6 +1,6 @@
 drop table T_PRODUCT if exists;
 
 create table T_PRODUCT (NAME varchar(50) not null,
-			IMAGE varchar(100) not null, 
-			PRIMARY KEY (NAME, IMAGE));
+			IMAGE varchar(1024), 
+			PRIMARY KEY (NAME));
 

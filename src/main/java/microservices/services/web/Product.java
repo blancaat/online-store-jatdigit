@@ -4,7 +4,7 @@ package microservices.services.web;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
- * Product DTO - used to interact with the {@link WebAccountsService}.
+ * Product DTO - used to interact with the {@link WebProductsService}.
  * 
  * @author Blanca AT
  */

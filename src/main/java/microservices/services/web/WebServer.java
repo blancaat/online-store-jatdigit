@@ -57,18 +57,18 @@ public class WebServer {
      * @return A new service instance.
      */
     @Bean
-    public WebAccountsService accountsService() {
-        return new WebAccountsService(PRODUCTS_SERVICE_URL);
+    public WebProductsService productsService() {
+        return new WebProductsService(PRODUCTS_SERVICE_URL);
     }
 
     /**
-     * Create the controller, passing it the {@link WebAccountsService} to use.
+     * Create the controller, passing it the {@link WebProductsService} to use.
      * 
      * @return
      */
     @Bean
-    public WebAccountsController accountsController() {
-        return new WebAccountsController(accountsService());
+    public WebProductsController productsController() {
+        return new WebProductsController(productsService());
     }
 
     @Bean

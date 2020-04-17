@@ -42,10 +42,7 @@ public class ProductsController {
 	
 	@RequestMapping("/products/{productName}")
 	public Product byName(@PathVariable("productName") String productName) {
-		System.out.println("---------------------ANTES-----------------");
-
 		Product product = productRepository.findByName(productName);
-		System.out.println(product);
 		if (product == null)
 			throw new ProductNotFoundException(productName);
 		else {
