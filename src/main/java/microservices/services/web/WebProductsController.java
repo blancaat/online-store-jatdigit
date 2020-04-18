@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Client controller, fetches Products info from the microservice via
@@ -35,10 +36,6 @@ public class WebProductsController {
 		this.productsService = productsService;
 	}
 
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		binder.setAllowedFields("accountNumber", "searchText");
-	}
 
 	@RequestMapping("/home")
 	public String showHome() {
@@ -59,12 +56,6 @@ public class WebProductsController {
 	public String byName(Model model, @PathVariable("productName") String productName) {
 		Product product = productsService.findByName(productName);
 		model.addAttribute("product", product);		
-		return "product";
-	}
-	
-	@RequestMapping("/product")
-	public String byName() {
-		//Product product = productsService.findByName("hola");
-		return "product";
+		return "product-details";
 	}
 }
