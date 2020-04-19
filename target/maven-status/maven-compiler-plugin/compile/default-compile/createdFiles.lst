@@ -1,0 +1,13 @@
+microservices/products/Product.class
+microservices/products/ProductsConfiguration.class
+io/pivotal/microservices/services/Main.class
+microservices/services/registration/RegistrationServer.class
+microservices/products/ProductRepository.class
+microservices/services/products/ProductsServer.class
+microservices/services/web/WebProductsService.class
+microservices/exceptions/ProductNotFoundException.class
+microservices/services/web/WebProductsController.class
+microservices/services/web/HomeController.class
+microservices/products/ProductsController.class
+microservices/services/web/WebServer.class
+microservices/services/web/Product.class
