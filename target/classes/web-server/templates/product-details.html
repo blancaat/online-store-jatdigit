@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Product Details|| Jatdigit</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,21 +24,15 @@
     <link rel="stylesheet" th:href="@{/css/custom.css}">
 
     <!-- Modernizr JS -->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script th:src="@{/js/vendor/modernizr-2.8.3.min.js}"></script>
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
     <!-- Body main wrapper start -->
     <div class="wrapper fixed__footer">
         <div th:replace="header.html :: header"></div>
-         <div class="body__overlay"></div>
-         
-		<h1 th:text="${product}"></h1>
-        <!-- Start Offset Wrapper -->
+        <div class="body__overlay"></div>
+              <!-- Start Offset Wrapper -->
         <div class="offset__wrapper">
             <!-- Start Search Popap -->
             <div class="search__area">
@@ -58,143 +52,101 @@
                     </div>
                 </div>
             </div>
-            <!-- End Search Popap -->
-
-            <!-- Start Cart Panel -->
-            <div class="shopping__cart">
-                <div class="shopping__cart__inner">
-                    <div class="offsetmenu__close__btn">
-                        <a href="#"><i class="zmdi zmdi-close"></i></a>
-                    </div>
-                    <div class="shp__cart__wrap">
-                        <div class="shp__single__product">
-                            <div class="shp__pro__thumb">
-                                <a href="#">
-                                    <img src="images/product/sm-img/1.jpg" alt="product images">
-                                </a>
-                            </div>
-                            <div class="shp__pro__details">
-                                <h2><a href="product-details.html">BO&Play Wireless Speaker</a></h2>
-                                <span class="quantity">QTY: 1</span>
-                                <span class="shp__price">$105.00</span>
-                            </div>
-                            <div class="remove__btn">
-                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
-                            </div>
-                        </div>
-                        <div class="shp__single__product">
-                            <div class="shp__pro__thumb">
-                                <a href="#">
-                                    <img src="images/product/sm-img/2.jpg" alt="product images">
-                                </a>
-                            </div>
-                            <div class="shp__pro__details">
-                                <h2><a href="product-details.html">Brone Candle</a></h2>
-                                <span class="quantity">QTY: 1</span>
-                                <span class="shp__price">$25.00</span>
-                            </div>
-                            <div class="remove__btn">
-                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="shoping__total">
-                        <li class="subtotal">Subtotal:</li>
-                        <li class="total__price">$130.00</li>
-                    </ul>
-                    <ul class="shopping__btn">
-                        <li><a href="cart.html">View Cart</a></li>
-                        <li class="shp__checkout"><a href="checkout.html">Checkout</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Cart Panel -->
+            <!-- End Search Popap --
         </div>
         <!-- End Offset Wrapper -->
         <!-- Start Product Details -->
-        <section class="htc__product__details pt--120 pb--100 bg__white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-lg-6 col-sm-12">
-                        <div class="product__details__container">
-                            <!-- Start Small images -->
-                            <ul class="nav product__small__images" role="tablist">
-                                <li role="presentation" class="pot-small-img active">
-                                    <a href="#img-tab-1" role="tab" data-toggle="tab">
-                                        <img src="images/product-details/small-img/1.jpg" alt="small-image">
-                                    </a>
-                                </li>
-                                <li role="presentation" class="pot-small-img">
-                                    <a href="#img-tab-2" role="tab" data-toggle="tab">
-                                        <img src="images/product-details/small-img/2.jpg" alt="small-image">
-                                    </a>
-                                </li>
-                                <li role="presentation" class="pot-small-img hidden-xs">
-                                    <a href="#img-tab-3" role="tab" data-toggle="tab">
-                                        <img src="images/product-details/small-img/3.jpg" alt="small-image">
-                                    </a>
-                                </li>
-                                <li role="presentation" class="pot-small-img d-no">
-                                    <a href="#img-tab-4" role="tab" data-toggle="tab">
-                                        <img src="images/product-details/small-img/4.jpg" alt="small-image">
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <!-- End Small images -->
-                            <div class="product__big__images">
-                                <div class="portfolio-full-image tab-content">
-                                 <div role="tabpanel" class="tab-pane" id="img-tab-1">
-                                        <img th:href="@{/images/logo.jpg}" alt="full-image">                                                                
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6 col-sm-12 smt-30 xmt-30">
-                        <div class="htc__product__details__inner">
-                            <div class="pro__detl__title">
-                                <h2>Black Clock</h2>
-                            </div>
-                            <div class="pro__dtl__rating">
-                                <ul class="pro__rating">
-                                    <li><span class="ti-star"></span></li>
-                                    <li><span class="ti-star"></span></li>
-                                    <li><span class="ti-star"></span></li>
-                                    <li><span class="ti-star"></span></li>
-                                    <li><span class="ti-star"></span></li>
-                                </ul>
-                                <span class="rat__qun">(Based on 0 Ratings)</span>
-                            </div>
-                            <div class="pro__details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod temf incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, nostr exercitation ullamco laboris nisi ut aliquip ex ea. </p>
-                            </div>
-                            <ul class="pro__dtl__prize">
-                                <li class="old__prize">$15.21</li>
-                                <li>$10.00</li>
-                            </ul>
-
-                            <div class="product-action-wrap">
-                                <div class="prodict-statas"><span>Quantity :</span></div>
-                                <div class="product-quantity">
-                                    <form id='myform' method='POST' action='#'>
-                                        <div class="product-quantity">
-                                            <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <ul class="pro__dtl__btn">
-                                <li class="buy__now__btn"><a href="#">buy now</a></li>
-                                <li><a href="#"><span class="ti-heart"></span></a></li>
-                                <li><a href="#"><span class="ti-email"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="htc__product__details pt--160 pb--100 bg__white">
+	            <div class="container">
+	                <div class="row">
+	                    <div class="col-md-12 col-lg-6 col-sm-12">
+	                        <div class="product__details__container">
+	                            <!-- Start Small images -->
+	                            <ul class="nav product__small__images" role="tablist">
+	                                <li role="presentation" class="pot-small-img active">
+	                                    <a href="#img-tab-1" role="tab" data-toggle="tab">
+	                                        <img th:src="@{/images/product-details/small-img/1.jpg}" alt="small-image">
+	                                    </a>
+	                                </li>
+	                                <li role="presentation" class="pot-small-img">
+	                                    <a href="#img-tab-2" role="tab" data-toggle="tab">
+	                                        <img src="images/product-details/small-img/2.jpg" alt="small-image">
+	                                    </a>
+	                                </li>
+	                                <li role="presentation" class="pot-small-img hidden-xs">
+	                                    <a href="#img-tab-3" role="tab" data-toggle="tab">
+	                                        <img src="images/product-details/small-img/3.jpg" alt="small-image">
+	                                    </a>
+	                                </li>
+	                                <li role="presentation" class="pot-small-img d-no">
+	                                    <a href="#img-tab-4" role="tab" data-toggle="tab">
+	                                        <img src="images/product-details/small-img/4.jpg" alt="small-image">
+	                                    </a>
+	                                </li>
+	                            </ul>
+	                            <!-- End Small images -->
+	                            <div class="product__big__images">
+	                                <div class="portfolio-full-image tab-content">
+	                                    <div role="tabpanel" class="tab-pane active" id="img-tab-1">
+	                                        <img th:src="@{/images/product-details/big-img/1.jpg}" alt="full-image">
+	                                    </div>
+	                                    <div role="tabpanel" class="tab-pane" id="img-tab-2">
+	                                        <img src="images/product-details/big-img/2.jpg" alt="full-image">
+	                                    </div>
+	                                    <div role="tabpanel" class="tab-pane" id="img-tab-3">
+	                                        <img src="images/product-details/big-img/3.jpg" alt="full-image">
+	                                    </div>
+	                                    <div role="tabpanel" class="tab-pane" id="img-tab-4">
+	                                        <img src="images/product-details/big-img/4.jpg" alt="full-image">
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-md-12 col-lg-6 col-sm-12 smt-30 xmt-30">
+	                        <div class="htc__product__details__inner">
+	                            <div class="pro__detl__title">
+	                                <h2>Black Clock</h2>
+	                            </div>
+	                            <div class="pro__dtl__rating">
+	                                <ul class="pro__rating">
+	                                    <li><span class="ti-star"></span></li>
+	                                    <li><span class="ti-star"></span></li>
+	                                    <li><span class="ti-star"></span></li>
+	                                    <li><span class="ti-star"></span></li>
+	                                    <li><span class="ti-star"></span></li>
+	                                </ul>
+	                                <span class="rat__qun">(Based on 0 Ratings)</span>
+	                            </div>
+	                            <div class="pro__details">
+	                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod temf incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, nostr exercitation ullamco laboris nisi ut aliquip ex ea. </p>
+	                            </div>
+	                            <ul class="pro__dtl__prize">
+	                                <li class="old__prize">$15.21</li>
+	                                <li>$10.00</li>
+	                            </ul>
+	
+	                            <div class="product-action-wrap">
+	                                <div class="prodict-statas"><span>Quantity :</span></div>
+	                                <div class="product-quantity">
+	                                    <form id='myform' method='POST' action='#'>
+	                                        <div class="product-quantity">
+	                                            <div class="cart-plus-minus">
+	                                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
+	                                            </div>
+	                                        </div>
+	                                    </form>
+	                                </div>
+	                            </div>
+	                            <ul class="pro__dtl__btn">
+	                                <li class="buy__now__btn"><a href="#">buy now</a></li>
+	                                <li><a href="#"><span class="ti-heart"></span></a></li>
+	                                <li><a href="#"><span class="ti-email"></span></a></li>
+	                            </ul>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
         </section>
         <!-- End Product Details -->
         <!-- Start Product tab -->
@@ -258,7 +210,7 @@
                                     <!-- Start Single Review -->
                                     <div class="pro__review ans">
                                         <div class="review__thumb">
-                                            <img src="images/review/2.jpg" alt="review images">
+                                            <img th:src="@{/images/review/2.jpg}" alt="review images">
                                         </div>
                                         <div class="review__details">
                                             <div class="review__info">
@@ -358,14 +310,14 @@
     <!-- Placed js at the end of the document so the pages load faster -->
 
     <!-- jquery latest version -->
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
     <!-- Bootstrap Framework js -->
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
     <!-- All js plugins included in this file. -->
-    <script src="js/plugins.js"></script>
+    <script th:src="@{/js/plugins.js}"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
-    <script src="js/main.js"></script>
+    <script th:src="@{/js/main.js}"></script>
 
 </body>
 
