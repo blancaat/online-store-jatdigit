@@ -1,6 +1,8 @@
 package microservices.services.web;
 
 
+import javax.persistence.Column;
+
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
@@ -13,7 +15,11 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 public class Product {
 
 	protected String name;
-	protected String image;
+	protected String title;
+	protected int price;
+	protected String description;
+	protected String details;
+	protected String measure;
 	
 
 	/**
@@ -34,17 +40,62 @@ public class Product {
 	}
 
 
-	public String getImage() {
-		return image;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
+
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	public String getDetails() {
+		return details;
+	}
+
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+
+	public String getMeasure() {
+		return measure;
+	}
+
+
+	public void setMeasure(String measure) {
+		this.measure = measure;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", image=" + image + "]";
+		return "Product [name=" + name + ", title=" + title + ", price=" + price + ", description=" + description
+				+ ", details=" + details + ", measure=" + measure + "]";
 	}
+
+
+
 
 }

@@ -16,7 +16,6 @@ import microservices.exceptions.ProductNotFoundException;
 @RestController
 public class ProductsController {
 
-	
 	protected ProductRepository productRepository;
 
 	/**

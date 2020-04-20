@@ -29,7 +29,8 @@
 
 <body>
 
-    <footer th:fragment="copy" class="htc__foooter__area" style="background: rgba(0, 0, 0, 0) url(images/footer.png) no-repeat scroll center center / cover ;">
+    <footer th:fragment="copy" class="htc__foooter__area" th:style="'background: url(' + @{/images/footer.png} + ') no-repeat scroll
+     center center / cover;'">
         <div class="container">
             <div class="row footer__container clearfix">
                 <!-- Start Single Footer Widget -->
