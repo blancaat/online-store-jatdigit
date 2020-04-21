@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Product Details|| Jatdigit</title>
+    <title>Product Details || Jatdigit</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -95,6 +95,11 @@
 	                    </div>
 	                    <div class="col-md-12 col-lg-6 col-sm-12 smt-30 xmt-30">
 	                        <div class="htc__product__details__inner">
+	                        	<div class="product__details">
+                               		<h2><a th:href="@{'/collections/' + ${product.collection}}">
+                               		<p style="color:grey;" th:text="${product.collection}">
+                               		</p></a></h2>                                 
+                             	</div>
 	                            <div class="pro__detl__title">
 	                                <h2 th:text="${product.title}"></h2>
 	                            </div>
@@ -110,7 +115,8 @@
 	                                    <form id='myform' method='POST' action='#'>
 	                                        <div class="product-quantity">
 	                                            <div class="cart-plus-minus">
-	                                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
+	                                                <input class="cart-plus-minus-box" type="text" name="qtybutton" 
+	                                                value="02">
 	                                            </div>
 	                                        </div>
 	                                    </form>

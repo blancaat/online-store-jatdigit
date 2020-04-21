@@ -58,4 +58,21 @@ public class WebProductsController {
 		model.addAttribute("product", product);		
 		return "product-details";
 	}
+	
+	@RequestMapping("/collections/{collectionName}")
+	public String showCollection(@PathVariable("collectionName") String collectionName) {
+		System.out.println(collectionName);
+		if (collectionName.equals("bicolour")) {
+			return "bicolour";
+		}
+		else if (collectionName.equals("lines")) {
+			return "lines";
+		}
+		else if (collectionName.equals("universe")) {
+			return "universe";
+		}
+		else {
+			return "error";
+		}
+	}
 }

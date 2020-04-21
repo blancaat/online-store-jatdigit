@@ -16,11 +16,13 @@ public class Product {
 
 	protected String name;
 	protected String title;
-	protected int price;
+	protected int quantity;
+	protected double price;
 	protected String description;
 	protected String details;
 	protected String measure;
-	
+	protected String collection;
+
 
 	/**
 	 * Default constructor for JPA only.
@@ -50,11 +52,21 @@ public class Product {
 	}
 
 
-	public int getPrice() {
+	public int getQuantity() {
+		return quantity;
+	}
+
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -89,13 +101,22 @@ public class Product {
 	}
 
 
-	@Override
-	public String toString() {
-		return "Product [name=" + name + ", title=" + title + ", price=" + price + ", description=" + description
-				+ ", details=" + details + ", measure=" + measure + "]";
+	public String getCollection() {
+		return collection;
 	}
 
 
+	public void setCollection(String collection) {
+		this.collection = collection;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Product [name=" + name + ", title=" + title + ", quantity=" + quantity + ", price=" + price
+				+ ", description=" + description + ", details=" + details + ", measure=" + measure + ", collection="
+				+ collection + "]";
+	}
 
 
 }
