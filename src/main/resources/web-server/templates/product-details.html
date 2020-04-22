@@ -97,7 +97,7 @@
 	                        <div class="htc__product__details__inner">
 	                        	<div class="product__details">
                                		<h2><a th:href="@{'/collections/' + ${product.collection}}">
-                               		<p style="color:grey;" th:text="${product.collection}">
+                               		<p style="color:grey;" th:text="'/ ' + ${product.collection} + ' collection'">
                                		</p></a></h2>                                 
                              	</div>
 	                            <div class="pro__detl__title">
