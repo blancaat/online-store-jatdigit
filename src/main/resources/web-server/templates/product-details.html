@@ -29,7 +29,7 @@
 
 <body>
     <!-- Body main wrapper start -->
-    
+    <div class="wrapper fixed__footer">
         <div th:replace="header.html :: header"></div>
         <div class="body__overlay"></div>
               <!-- Start Offset Wrapper -->
@@ -98,7 +98,7 @@
 	                        	<div class="product__details">
                                		<h2><a th:href="@{'/collections/' + ${product.collection}}">
                                		<p style="color:grey;" th:text="'/ ' + ${product.collection} + ' collection'">
-                               		</p></a></h2>                                 
+                               		</p></a></h2>
                              	</div>
 	                            <div class="pro__detl__title">
 	                                <h2 th:text="${product.title}"></h2>
@@ -115,7 +115,7 @@
 	                                    <form id='myform' method='POST' action='#'>
 	                                        <div class="product-quantity">
 	                                            <div class="cart-plus-minus">
-	                                                <input class="cart-plus-minus-box" type="text" name="qtybutton" 
+	                                                <input class="cart-plus-minus-box" type="text" name="qtybutton"
 	                                                value="02">
 	                                            </div>
 	                                        </div>
@@ -161,7 +161,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Single Content -->                            
+                            <!-- End Single Content -->
                         </div>
                     </div>
                 </div>

@@ -28,6 +28,8 @@ public class WebServer {
      * matter.
      */
     public static final String PRODUCTS_SERVICE_URL = "http://PRODUCTS-SERVICE";
+    public static final String CART_SERVICE_URL = "http://CART-SERVICE";
+
 
     /**
      * Run the application using Spring Boot
@@ -52,7 +54,7 @@ public class WebServer {
     }
 
     /**
-     * The AccountService encapsulates the interaction with the micro-service.
+     * The ProductsService encapsulates the interaction with the micro-service.
      * 
      * @return A new service instance.
      */
@@ -70,9 +72,32 @@ public class WebServer {
     public WebProductsController productsController() {
         return new WebProductsController(productsService());
     }
+    
+
+    /**
+     * The CartService encapsulates the interaction with the micro-service.
+     * 
+     * @return A new service instance.
+     */
+    @Bean
+    public WebCartService cartService() {
+        return new WebCartService(CART_SERVICE_URL);
+    }
+
+    /**
+     * Create the controller, passing it the {@link WebCartService} to use.
+     * 
+     * @return
+     */
+    @Bean
+    public WebCartController cartController() {
+        return new WebCartController(cartService(), productsService());
+    }
+
 
     @Bean
     public HomeController homeController() {
         return new HomeController();
     }
+    
 }

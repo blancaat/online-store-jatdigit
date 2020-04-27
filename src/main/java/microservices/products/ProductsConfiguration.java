@@ -33,7 +33,7 @@ import java.util.List;
 @ComponentScan()
 @EntityScan("microservices.products")
 @EnableJpaRepositories("microservices.products")
-@PropertySource("classpath:db-config.properties")
+@PropertySource("classpath:productDB-config.properties")
 public class ProductsConfiguration {
 	public ProductsConfiguration() {
 	}
@@ -46,8 +46,8 @@ public class ProductsConfiguration {
 	@Bean
 	public DataSource dataSource() throws IOException {
 		// Create database T_PRODUCT and add data to Product Database using data.sql file
-		DataSource dataSource = (new EmbeddedDatabaseBuilder()).addScript("classpath:testdb/schema.sql")
-				.addScript("classpath:testdb/data.sql").build();
+		DataSource dataSource = (new EmbeddedDatabaseBuilder()).addScript("classpath:testdb/schemaProducts.sql")
+				.addScript("classpath:testdb/dataProducts.sql").build();
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		List<Map<String, Object>> products = jdbcTemplate.queryForList("SELECT * FROM T_PRODUCT");

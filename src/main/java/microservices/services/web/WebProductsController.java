@@ -37,21 +37,7 @@ public class WebProductsController {
 	}
 
 
-	@RequestMapping("/home")
-	public String showHome() {
-		return "index";
-	}
 	
-	@RequestMapping("/about")
-	public String showAbout() {
-		return "about";
-	}
-	
-	@RequestMapping("/info")
-	public String showInfo() {
-		return "info";
-	}
-
 	@RequestMapping("/products/{productName}")
 	public String byName(Model model, @PathVariable("productName") String productName) {
 		Product product = productsService.findByName(productName);
@@ -61,7 +47,6 @@ public class WebProductsController {
 	
 	@RequestMapping("/collections/{collectionName}")
 	public String showCollection(@PathVariable("collectionName") String collectionName) {
-		System.out.println(collectionName);
 		if (collectionName.equals("bicolour")) {
 			return "bicolour";
 		}

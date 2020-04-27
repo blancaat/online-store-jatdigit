@@ -27,8 +27,24 @@ public class Product {
 	/**
 	 * Default constructor for JPA only.
 	 */
+	
+
 	protected Product() {
 		
+	}
+
+
+	public Product(String name, String title, int quantity, double price, String description, String details,
+			String measure, String collection) {
+		super();
+		this.name = name;
+		this.title = title;
+		this.quantity = quantity;
+		this.price = price;
+		this.description = description;
+		this.details = details;
+		this.measure = measure;
+		this.collection = collection;
 	}
 
 
