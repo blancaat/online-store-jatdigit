@@ -122,8 +122,8 @@
 	                                    </form>
 	                                </div>
 	                            </div>
-	                            <ul class="pro__dtl__btn">
-	                                <li class="buy__now__btn"><a href="#">buy now</a></li>
+	                             <ul class="pro__dtl__btn">
+	                                <li class="buy__now__btn"><a th:href="@{'/cart/add/' + ${product.name}}">Añadir a Carrito</a></li>
 	                                <li><a href="#"><span class="ti-heart"></span></a></li>
 	                                <li><a href="#"><span class="ti-email"></span></a></li>
 	                            </ul>

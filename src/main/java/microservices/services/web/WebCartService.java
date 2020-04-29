@@ -6,6 +6,9 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.http.MediaType;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -43,4 +46,13 @@ public class WebCartService {
 		return restTemplate.getForObject(serviceUrl + "/cart",
 				Cart.class);
 	}
+	
+	public void addProduct(String name) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.TEXT_PLAIN);
+		HttpEntity<String> request = new HttpEntity<String>(name, headers);
+		// Send to Cart Controller POST String object
+		restTemplate.postForLocation(serviceUrl + "/cart/add", request);
+	}
+	
 }

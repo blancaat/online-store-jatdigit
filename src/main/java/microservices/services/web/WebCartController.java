@@ -8,8 +8,13 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.http.HttpStatus;
 
 
 /**
@@ -40,7 +45,6 @@ public class WebCartController {
 		ArrayList<Product> products = new ArrayList<Product>();
 		// HTTP request to Cart Microservice
 		Cart cart = cartService.showCart();
-		
 		// HTTP request to Product Microservice
 		for (int i = 0; i < cart.getProducts().size(); i++) {
 			Product product = productsService.findByName(cart.getProducts().get(i));
@@ -49,5 +53,15 @@ public class WebCartController {
 		
 		model.addAttribute("products", products);		
 		return "cart";
+	}
+	
+	@RequestMapping(value = "/cart/add/{name}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void addProductToCart(@PathVariable("name") String name) {
+		// HTTP request to Cart Microservice
+		String productName = name;
+
+		// Cart microservice modify their stock
+		cartService.addProduct(productName);	
 	}
 }
