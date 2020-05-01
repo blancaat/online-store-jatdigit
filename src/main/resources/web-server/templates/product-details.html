@@ -52,7 +52,23 @@
                     </div>
                 </div>
             </div>
-            <!-- End Search Popap --
+            <!-- End Search Popap -->
+             <!-- Start Cart Panel -->
+           <div class="shopping__cart">
+                <div class="shopping__cart__inner">
+                 	<div class="off__contact">
+                        <p> No esperes más para obtener uno de nuestros productos...
+                          <br> ¡Finaliza tu compra accediendo al carrito! </p>
+                    </div>
+                    <div class="offsetmenu__close__btn">
+                        <a href="#"><i class="zmdi zmdi-close"></i></a>
+                    </div>                 
+                    <ul class="shopping__btn">
+                        <li><a th:href="@{/cart}">Ver Carrito</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Cart Panel -->
         </div>
         <!-- End Offset Wrapper -->
         <!-- Start Product Details -->
@@ -123,9 +139,14 @@
 	                                </div>
 	                            </div>
 	                             <ul class="pro__dtl__btn">
-	                                <li class="buy__now__btn"><a th:href="@{'/cart/add/' + ${product.name}}">Añadir a Carrito</a></li>
+	                                <li class="buy__now__btn" id="add" onclick="changeText()"><a th:href="@{'/cart/add/' + ${product.name}}">Añadir a Carrito</a></li>
 	                                <li><a href="#"><span class="ti-heart"></span></a></li>
 	                                <li><a href="#"><span class="ti-email"></span></a></li>
+	                                <script type="text/javascript">
+                                        function changeText(){
+                                        	document.getElementById("add").innerHTML = "<span style=\"color:red\"> ¡Producto Añadido! </span>";
+                                        }                                      
+                                     </script>
 	                            </ul>
 	                        </div>
 	                    </div>

@@ -1,10 +1,9 @@
 package microservices.cart;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.Repository;
 
 /**
- * Repository for Cart data implemented using Spring Data MongoDB
+ * Repository for Cart data implemented using Spring Data JPA
  * 
  * @author Blanca AT
  */

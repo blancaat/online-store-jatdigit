@@ -52,7 +52,16 @@ public class WebCartService {
 		headers.setContentType(MediaType.TEXT_PLAIN);
 		HttpEntity<String> request = new HttpEntity<String>(name, headers);
 		// Send to Cart Controller POST String object
-		restTemplate.postForLocation(serviceUrl + "/cart/add", request);
+		restTemplate.postForLocation(serviceUrl + "/cart/add", request);	
+	}
+	
+	
+	public void deleteProduct(String name) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.TEXT_PLAIN);
+		HttpEntity<String> request = new HttpEntity<String>(name, headers);
+		// Send to Cart Controller POST String object
+		restTemplate.postForLocation(serviceUrl + "/cart/delete", request);
 	}
 	
 }

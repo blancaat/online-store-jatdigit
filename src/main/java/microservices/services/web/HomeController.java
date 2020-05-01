@@ -31,7 +31,5 @@ public class HomeController {
 	public String showInfo() {
 		return "info";
 	}
-	
-
 
 }

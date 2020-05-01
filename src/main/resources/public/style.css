@@ -3432,7 +3432,7 @@ blockquote::before {
     font-size: 25px;
 }
 .wishlist-table table .product-thumbnail {
-    width: 150px;
+    width: 300px;
 }
 .wishlist-table table td.product-price .amount {
     font-weight: 700;
@@ -3551,10 +3551,10 @@ blockquote::before {
     color: #6f6f6f;
 }
 .table-content table td.product-name{
-    width: 270px;
+    width: 200px;
 }
 .table-content table td.product-thumbnail{
-    width: 130px;
+    width: 300px;
 }
 .table-content table td.product-remove i{
     color: #919191;
@@ -3574,13 +3574,13 @@ blockquote::before {
     color:#252525
 }
 .table-content table td.product-quantity{
-    width: 180px;
+    width: 100px;
 }
 .table-content table td.product-remove{
-    width: 150px;
+    width: 100px;
 }
 .table-content table td.product-price{
-    width: 130px;
+    width: 100px;
 }
 .table-content table td.product-name a:hover,.buttons-cart a:hover{
     color:#ff4136

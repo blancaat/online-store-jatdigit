@@ -1,6 +1,5 @@
 package microservices.cart;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,10 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import java.io.Serializable;
-
-
-
 import microservices.services.web.*;
+
 /**
  * Entity with JPA. Cart is stored in a H2 database.
  * 

@@ -2,11 +2,9 @@ package microservices.cart;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 /**
  * A RESTFul controller for accessing cart information.
@@ -30,26 +28,45 @@ public class CartController {
 		this.cartRepository = cartRepository;
 	}
 	
+	/**
+	 * Return the cart 
+	 * 
+	 * @return The cart if found.
+	 */
+	
 	@RequestMapping("/cart")
 	public Cart getCart() {
 		Cart cart = cartRepository.findById(1);
 		return cart;
 	}
 	
+	/**
+	 * Add a product to the cart.
+	 * 
+	 * @param name
+	 * 
+	 */
+	
 	@PostMapping("/cart/add")
 	public void addProduct(@RequestBody String name) {
-		System.out.println("desde Cart Controller " + name);
 		Cart cart = cartRepository.findById(1);
 		cart.getProducts().add(name);	
 		cartRepository.save(cart);
 	}
 	
-	@RequestMapping("/cart/delete")
-	public void deleteProduct(String name) {
+	/**
+	 * Remove a product from the cart.
+	 * 
+	 * @param name
+	 * 
+	 */
+	@PostMapping("/cart/delete")
+	public void deleteProduct(@RequestBody String name) {
 		Cart cart = cartRepository.findById(1);
-		cart.getProducts().remove(name);
-				
+		cart.getProducts().remove(name);	
+		cartRepository.save(cart);
 	}
+	
 				
 }
 	

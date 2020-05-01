@@ -1,9 +1,5 @@
 package microservices.products;
 
-
-import java.util.Map;
-
-import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -12,16 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * The products Spring configuration.
@@ -49,10 +38,6 @@ public class ProductsConfiguration {
 		DataSource dataSource = (new EmbeddedDatabaseBuilder()).addScript("classpath:testdb/schemaProducts.sql")
 				.addScript("classpath:testdb/dataProducts.sql").build();
 
-		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		List<Map<String, Object>> products = jdbcTemplate.queryForList("SELECT * FROM T_PRODUCT");
-		System.out.println("Numero de productos"  + products.size());
-		System.out.println(products.get(0));
 		return dataSource;
 	}
 }
