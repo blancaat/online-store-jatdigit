@@ -1,7 +1,6 @@
 package microservices.services.web;
 
-import java.util.ArrayList;
-import java.util.Set;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
@@ -14,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @JsonRootName("Cart")
 public class Cart {
 	protected int id;
-	protected ArrayList<String> products;
+	protected Map<String, String> products;
 	
 	protected Cart() {
 		
@@ -28,11 +27,11 @@ public class Cart {
 		this.id = id;
 	}
 
-	public ArrayList<String> getProducts() {
+	public Map<String, String> getProducts() {
 		return products;
 	}
 
-	public void setProducts(ArrayList<String> products) {
+	public void setProducts(Map<String, String>products) {
 		this.products = products;
 	}
 

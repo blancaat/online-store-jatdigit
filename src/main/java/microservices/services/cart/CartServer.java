@@ -1,10 +1,8 @@
 package microservices.services.cart;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
-import microservices.services.web.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -48,7 +46,7 @@ public class CartServer implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// Crate the cart Object (in this case there is only ONE cart in the application)
 		cartRepository.deleteAll();		
-		Set<String> products = new HashSet<>();
+		Map<String, String> products = new HashMap<>();
 		Cart cart = new Cart(1);
 		cart.setProducts(products);
 		cartRepository.save(cart);	

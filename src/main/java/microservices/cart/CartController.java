@@ -1,5 +1,7 @@
 package microservices.cart;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -48,9 +50,11 @@ public class CartController {
 	 */
 	
 	@PostMapping("/cart/add")
-	public void addProduct(@RequestBody String name) {
+	public void addProduct(@RequestBody ArrayList<String> data) {
 		Cart cart = cartRepository.findById(1);
-		cart.getProducts().add(name);	
+		String name = data.get(0); // key
+		String quantity = data.get(1); // value
+		cart.getProducts().put(name, quantity);	
 		cartRepository.save(cart);
 	}
 	
@@ -66,11 +70,5 @@ public class CartController {
 		cart.getProducts().remove(name);	
 		cartRepository.save(cart);
 	}
-	
-				
+			
 }
-	
-	
-	
-	
-	

@@ -1,6 +1,5 @@
 package microservices.services.web;
 
-import microservices.exceptions.ProductNotFoundException;
 import microservices.services.web.Product;
 import java.util.logging.Logger;
 
@@ -30,11 +29,12 @@ public class WebProductsController {
 		this.productsService = productsService;
 	}
 
-
-	
 	@RequestMapping("/products/{productName}")
 	public String byName(Model model, @PathVariable("productName") String productName) {
-		Product product = productsService.findByName(productName);
+		// Obtain the product thanks to the Product Service
+		Product product = productsService.findByName(productName);	
+		
+		// Product is sent in View for display to the user 
 		model.addAttribute("product", product);		
 		return "product-details";
 	}

@@ -35,8 +35,8 @@ public class ProductsConfiguration {
 	@Bean
 	public DataSource dataSource() throws IOException {
 		// Create database T_PRODUCT and add data to Product Database using data.sql file
-		DataSource dataSource = (new EmbeddedDatabaseBuilder()).addScript("classpath:testdb/schemaProducts.sql")
-				.addScript("classpath:testdb/dataProducts.sql").build();
+		DataSource dataSource = (new EmbeddedDatabaseBuilder()).addScript("classpath:datadb/schemaProducts.sql")
+				.addScript("classpath:datadb/dataProducts.sql").build();
 
 		return dataSource;
 	}

@@ -1,8 +1,5 @@
 package microservices.services.web;
 
-
-import javax.persistence.Column;
-
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**

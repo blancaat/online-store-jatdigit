@@ -20,8 +20,6 @@
     <link rel="stylesheet" th:href="@{/style.css}">
     <!-- Responsive css -->
     <link rel="stylesheet" th:href="@{/css/responsive.css}">
-    <!-- User style -->
-    <link rel="stylesheet" th:href="@{/css/custom.css}">
 
     <!-- Modernizr JS -->
     <script th:src="@{/js/vendor/modernizr-2.8.3.min.js}"></script>
@@ -126,27 +124,44 @@
 	                                <li th:text="${product.price} + '€'"></li>
 	                            </ul>
 	                            <div class="product-action-wrap">
-	                                <div class="prodict-statas"><span>Cantidad: </span></div>
-	                                <div class="product-quantity">
-	                                    <form id='myform' method='POST' action='#'>
+	                                <div class="product-quantity">          	
+	                                    <form class="myForm" action='/cart/add/' onsubmit="return validateForm()">
 	                                        <div class="product-quantity">
-	                                            <div class="cart-plus-minus">
-	                                                <input class="cart-plus-minus-box" type="text" name="qtybutton"
-	                                                value="02">
-	                                            </div>
-	                                        </div>
-	                                    </form>
+	                                         		<label for="box">Cantidad:</label>
+	                                                <input type="text" id="box" name="quantity" th:placeholder="'máx disponible: ' + ${product.quantity}">	
+	                                                <input type= "hidden" name="name" th:value= "${product.name}">
+	                                                <br></br>		                                                                                                 
+	                                            	<button class="button_add" type="submit" id="add">Añadir Producto</button>
+	                                        </div>	                                                                
+	                                    </form>                                    
+	                                        <script type="text/javascript" th:inline="javascript">	 
+	                                		function validateForm() {
+                                        			var x = document.getElementById("box").value;                  			
+                                        			var quantityAvailable = /*[[${product.quantity}]]*/;
+                                        			var y = parseInt(x);
+                                        			if (y > 0 && y <= quantityAvailable) {
+                                        				document.getElementById("add").innerHTML="¡Producto añadido!"
+                                        				return true;
+                                        			}     
+                                        			else if (y > quantityAvailable) {
+                                        			    alert("No disponemos de tantas unidades. Seleccione otra cantidad.");
+                                        				return false;              			
+                                        			}
+                                        			else if (y == 0) {
+                                        			    alert("Debe introducir una cantidad mayor que 0.");
+                                        				return false;              			
+                                        			}
+                                        			else {
+                                        			    alert("Cantidad errónea.");                                        			
+                                        				return false;
+                                        			}
+                                        	} 
+	                                		</script>               
 	                                </div>
 	                            </div>
 	                             <ul class="pro__dtl__btn">
-	                                <li class="buy__now__btn" id="add" onclick="changeText()"><a th:href="@{'/cart/add/' + ${product.name}}">Añadir a Carrito</a></li>
 	                                <li><a href="#"><span class="ti-heart"></span></a></li>
-	                                <li><a href="#"><span class="ti-email"></span></a></li>
-	                                <script type="text/javascript">
-                                        function changeText(){
-                                        	document.getElementById("add").innerHTML = "<span style=\"color:red\"> ¡Producto Añadido! </span>";
-                                        }                                      
-                                     </script>
+	                                <li><a href="#"><span class="ti-email"></span></a></li>                             
 	                            </ul>
 	                        </div>
 	                    </div>
@@ -161,7 +176,7 @@
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <ul class="nav product__deatils__tab mb--60" role="tablist">
                             <li role="presentation" class="active">
-                                <a class="active" href="#description" role="tab" data-toggle="tab">Description</a>
+                                <a class="active" href="#description" role="tab" data-toggle="tab">Descripción</a>
                             </li>
                         </ul>
                     </div>

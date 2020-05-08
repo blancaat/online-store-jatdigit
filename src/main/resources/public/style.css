@@ -1486,7 +1486,7 @@ product__style--7
     color: #afafaf;
 }
 .htc__newsletter__area .input__box input::-moz-placeholder {
-    color: #afafaf !important;
+    color: red !important;
 }
 
 .htc__newsletter__area .subscribe__btn input.bst__btn {
@@ -2587,6 +2587,32 @@ select.select-color {
     -webkit-transition: 0.3s;
     transition: 0.3s;
 }
+
+.button_add {
+	background-color: #666666;
+	color:white;
+    font-size: 14px;
+    margin: 10px;
+    margin-left: 10px;
+    width: 175px;
+    height: 30px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+input[type=text] {
+	background-color: #f5f5f5;
+	margin-left: 10px;
+	width: 175px;
+	height: 30px;
+	border: 1px solid #ccc;	
+	text-align: center;
+}
+
+label {
+	margin-left:10px;
+}
+
 .pro__dtl__btn li.buy__now__btn a:hover{
     color: #fff;
     background: #ff4136;

@@ -20,8 +20,7 @@
     <link rel="stylesheet" th:href="@{/style.css}">
     <!-- Responsive css -->
     <link rel="stylesheet" th:href="@{/css/responsive.css}">
-    <!-- User style -->
-    <link rel="stylesheet" th:href="@{/css/custom.css}">
+    
 
     <!-- Modernizr JS -->
     <script th:src="@{/js/vendor/modernizr-2.8.3.min.js}"></script>
@@ -87,23 +86,24 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th class="product-thumbnail">Image</th>                                      
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-thumbnail">Imagen</th>                                      
+                                            <th class="product-name">Producto</th>
+                                            <th class="product-price">Precio</th>
+                                            <th class="product-quantity">Cantidad</th>
                                             <th class="product-subtotal">Total</th>
-                                            <th class="product-remove">Remove</th>
+                                            <th class="product-remove">Eliminar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                       <script th:inline="javascript">
                                         var outputHTML = "";
-                                          
+                                        var i = 0 ;
+                                        var quantities = /*[[${quantities}]]*/;
                                           /*[# th:each="product : ${products}"]*/
                                           
                                           	var name =  /*[[${product.name}]]*/;
                                           	var price =  /*[[${product.price}]]*/;
-                                          	var quantity =  /*[[${product.quantity}]]*/;
+                                          	var quantity =  quantities[i];
                                           	var path = "'/images/products/big/" + name + ".jpg'";
                                           	var deletePath = "'/cart/delete/" + name +"'"; 
                                           	var subtotal = quantity * price;
@@ -111,11 +111,12 @@
                                            	outputHTML += "<tr>";
                                            	outputHTML += "<td class='product-thumbnail'><a href='#'><img src=" + path + "alt='small-image' style='width:200px;height:200px;' /></a></td>";                                  	
                                           	outputHTML += "<td class='product-name'>"  + name + "</td>";
-                                            outputHTML += "<td class='product-price'><span class='amount'>" + price + "€</span></td>";
-                                            outputHTML += "<td class='product-quantity'>"+ quantity + "</td>";
+                                            outputHTML += "<td class='product-price'><span class='amount'>" + price + "€</span></td>";                            	
+                                           	outputHTML += "<td class='product-quantity'>"+ quantity + "</td>";                                          	             	
                                             outputHTML += "<td class='product-subtotal'>" + subtotal + "€</td>";
                                             outputHTML += "<td class='product-remove'><a href=" + deletePath + ">X</a></td>";
-                                          	outputHTML += "</tr>";     
+                                          	outputHTML += "</tr>"; 
+                                          	i++; 
                                           /*[/]*/            
                                                              
                                         document.write(outputHTML);
@@ -145,13 +146,15 @@
                                                     <script th:inline="javascript">
                                         			var outputHTML = "";
                                           			var subtotal = 0;
+                                          			var i = 0 ;
+                                        			var quantities = /*[[${quantities}]]*/;
 			                                          /*[# th:each="product : ${products}"]*/;		                                        
 			                                          	
 			                                          	var price =  /*[[${product.price}]]*/;
-			                                          	var quantity =  /*[[${product.quantity}]]*/;                 
+			                                          	var quantity =  quantities[i];                 
 			                                          	var mul =  quantity * price;
 			                                          	subtotal += mul;
-			                                          	
+			                                          	i++;
                                          			 /*[/]*/            
                                          			 outputHTML += "<td><span class='amount'>" + subtotal + "€</span></td>";
                                                              

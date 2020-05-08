@@ -3,12 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.springframework.samples.service.service</groupId>
     <artifactId>online-store-microservices</artifactId>
-    <version>2.0.0.RELEASE</version>
     <packaging>jar</packaging>
 
-    <properties>
-        <!-- Stand-alone RESTFul application for testing only -->
-        <start-class>io.pivotal.microservices.services.Main</start-class>
+	<properties>
+        <start-class>microservices.main.Main</start-class>
     </properties>
 
     <parent>

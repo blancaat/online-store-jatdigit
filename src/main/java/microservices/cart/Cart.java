@@ -1,7 +1,7 @@
 package microservices.cart;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import java.io.Serializable;
-import microservices.services.web.*;
 
 /**
  * Entity with JPA. Cart is stored in a H2 database.
@@ -30,9 +29,14 @@ public class Cart implements Serializable {
 	@Column (name = "ID")
 	protected int id;
 	
+	/* Entire products will not be stored in the cart DB, but ther ID (name) and the quantity added to the
+	 * cart will be stored
+	 */
+	
 	@ElementCollection
 	@CollectionTable(name="CART_PRODUCTS", joinColumns = @JoinColumn(name = "cart_id"))
-	protected Set<String> products = new HashSet<>();
+	// Key: Name of Product; Value: Quantity of products 
+	protected Map<String, String> products = new HashMap<String, String>();
 	
 	public Cart() {
 		
@@ -50,11 +54,11 @@ public class Cart implements Serializable {
 		this.id = id;
 	}
 
-	public Set<String> getProducts() {
+	public Map<String, String> getProducts() {
 		return products;
 	}
 
-	public void setProducts(Set<String> products) {
+	public void setProducts(Map<String, String> products) {
 		this.products = products;
 	}
 
