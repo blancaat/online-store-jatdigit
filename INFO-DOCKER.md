@@ -61,7 +61,7 @@ We will run the container three times, each time running the Java application in
 
 1. In your browser, go to http://localhost:1111 and you should see the Eureka dashboard. There are no instances registered.
 
-1. _In a new CMD/Terminal window_, run a second container for the PRODUCTS microservice. This holds a database.
+1. _In a new CMD/Terminal window_, run a second container for the PRODUCTS microservice.
 
     ```sh
     docker run --name products --hostname products --network online-store-net -p 2222:2222 online-store-microservice java -jar app.jar products  --registration.server.hostname=<reg server ip addr>
@@ -71,7 +71,7 @@ We will run the container three times, each time running the Java application in
 
 1. Return to the Eureka Dashboard in your browser and refresh the screen.  You should see that `PRODUCTS-SERVICE` is now registered.
 
-1. _In a new CMD/Terminal window_, run a second container for the CART microservice. This holds a database.
+1. _In a new CMD/Terminal window_, run a third container for the CART microservice.
 
     ```sh
     docker run --name cart --hostname cart --network online-store-net -p 4444:4444 online-store-microservice java -jar app.jar products  --registration.server.hostname=<reg server ip addr>
@@ -81,7 +81,7 @@ We will run the container three times, each time running the Java application in
 
 1. Return to the Eureka Dashboard in your browser and refresh the screen.  You should see that `PRODUCTS-SERVICE` and `CART-SERVICE` is now registered.
 
-1. _In a new CMD/Terminal window_, run a fourth container for the web-service. This is a web-application for viewing the information by requesting from all the microservices.
+1. _In a new CMD/Terminal window_, run a fourth container for the WEB microservice. This is a web-application for viewing the information by requesting from all the microservices.
 
     ```sh
     docker run --name web --hostname web --network online-store-net -p 3333:3333 online-store-microservice java -jar app.jar web --registration.server.hostname=<eg server ip addr>
