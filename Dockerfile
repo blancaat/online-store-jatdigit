@@ -4,4 +4,4 @@ EXPOSE 1111
 EXPOSE 2222
 EXPOSE 3333
 EXPOSE 4444
-# ENTRYPOINT ["java","-jar","/app.jar","accounts"]
+ENTRYPOINT ["java","-jar","/app.jar","reg"]

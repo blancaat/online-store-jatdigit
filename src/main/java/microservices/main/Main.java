@@ -8,7 +8,7 @@ import microservices.registration.main.RegistrationServer;
 import microservices.web.main.WebServer;
 
 /**
- * Allow the servers to be invoked from the command-line. 
+ * Allow the servers to be invoked from the terminal. 
  * 
  * @author Blanca AT
  */
@@ -20,21 +20,17 @@ public class Main {
     public static void main(String[] args) {
 
         String serverName = NO_VALUE;
-        String port = null;
 
-        // Eureka server assumed to be on localhost
+        // Eureka Server assumed to be on localhost
         System.setProperty("registration.server.hostname", "localhost");
 
-        // Look for server name and (optional) port property
-        // Ignore any -- arguments intended for Spring Boot
+        // Look for server name and ignore -- arguments
         for (String arg : args) {
             if (arg.startsWith("--"))
                 continue;
 
             if (serverName.equals(NO_VALUE))
                 serverName = arg;
-            else if (port == null)
-                port = arg;
             else {
                 System.out.println("Unexpected argument: " + arg);
                 usage();
@@ -42,15 +38,11 @@ public class Main {
             }
         }
 
-        // No server name supplied, print usage and exit
+        // No server name, print usage and exit
         if (serverName == NO_VALUE) {
             usage();
             return;
         }
-
-        // Override port, if specified
-        if (port != null)
-            System.setProperty("server.port", port);
 
         // Get IP address, useful when running in containers
         try {
@@ -60,8 +52,8 @@ public class Main {
             e.printStackTrace();
         }
 
-        // Determine which role this application will run as
-        if (serverName.equals("registration") || serverName.equals("reg")) {
+        // Determine which Main this application will run as
+        if (serverName.equals("reg")) {
             RegistrationServer.main(args);
         } else if (serverName.equals("products")) {
             ProductsServer.main(args);
@@ -81,12 +73,11 @@ public class Main {
      */
     protected static void usage() {
         System.out.println();
-        System.out.println("Usage: java -jar ... <server-name> [server-port]");
+        System.out.println("USAGE: modify Dockerfile. On entrypoint -> java -jar ... <server-name>");
         System.out.println("     where");
-        System.out.println("       server-name is 'reg', 'registration', " + "'products' or 'cart' or 'web'");
-        System.out.println("       server-port > 1024");
+        System.out.println("       server-name is 'reg', " + "'products', " +  "'cart' or 'web'");
         System.out.println(
-                "     optionally specify --registration.server.hostname=<IP-address> if it is not running on localhost,");
+                "     optionally specify --registration.server.hostname=<IP-address> if its running on container");
         System.out.println();
     }
 }
