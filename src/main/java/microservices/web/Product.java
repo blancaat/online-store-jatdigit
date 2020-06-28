@@ -1,9 +1,10 @@
-package microservices.services.web;
+package microservices.web;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
- * Product DTO - used to interact with the {@link WebProductsService}.
+ * Product Data Transfer Object. Transfer data between processes
+ *  used to interact with the {@link WebProductsService}.
  * 
  * @author Blanca AT
  */
@@ -11,24 +12,20 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @JsonRootName("Product")
 public class Product {
 
-	protected String name;
-	protected String title;
-	protected int quantity;
-	protected double price;
-	protected String description;
-	protected String details;
-	protected String measure;
-	protected String collection;
+	private String name;
+	private String title;
+	private int quantity;
+	private double price;
+	private String description;
+	private String details;
+	private String measure;
+	private String collection;
 
 
 	/**
-	 * Default constructor for JPA only.
+	 * Default constructor only for JPA.
 	 */
-	
-
-	protected Product() {
-		
-	}
+	public Product() {}
 
 
 	public Product(String name, String title, int quantity, double price, String description, String details,
@@ -130,6 +127,4 @@ public class Product {
 				+ ", description=" + description + ", details=" + details + ", measure=" + measure + ", collection="
 				+ collection + "]";
 	}
-
-
 }

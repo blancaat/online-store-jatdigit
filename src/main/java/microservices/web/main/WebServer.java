@@ -1,4 +1,4 @@
-package microservices.services.web;
+package microservices.web.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
+import microservices.web.*;
 /**
  * Online-store web-server. Works as a microservice client, fetching data from the
  * rest of microservices. Uses the Discovery Server (Eureka) to find them.
@@ -17,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
  * @author Blanca AT
  */
 
-@SpringBootApplication(exclude = { HibernateJpaAutoConfiguration.class, //
+@SpringBootApplication(exclude = { HibernateJpaAutoConfiguration.class, 
         DataSourceAutoConfiguration.class })
 @EnableDiscoveryClient
 @ComponentScan(useDefaultFilters = false) // Disable component scanner

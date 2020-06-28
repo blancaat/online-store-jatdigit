@@ -1,21 +1,15 @@
-package microservices.services.cart;
-
-import java.util.HashMap;
-import java.util.Map;
-
+package microservices.cart.main;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-
 import org.springframework.context.annotation.Import;
 
-import microservices.cart.CartRepository;
 import microservices.cart.Cart;
-import microservices.cart.CartConfiguration;;
+import microservices.cart.CartConfiguration;
+import microservices.cart.CartRepository;
 
 /**
  * Micro-service registered with the Eureka Server
@@ -28,7 +22,7 @@ import microservices.cart.CartConfiguration;;
 public class CartServer implements CommandLineRunner{
 
 	@Autowired
-	protected CartRepository cartRepository;
+	private CartRepository cartRepository;
 	/**
 	 * Run the application using Spring Boot
 	 * 
@@ -44,10 +38,8 @@ public class CartServer implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		// Crate the cart Object (in this case there is only ONE cart in the application)
+		// Create the Cart Singleton Object
 		cartRepository.deleteAll();		
-		Map<String, String> products = new HashMap<>();
-		Cart cart = new Cart(1);
-		cart.setProducts(products);
+		Cart cart = Cart.getCartInstance();
 		cartRepository.save(cart);	
 	}}

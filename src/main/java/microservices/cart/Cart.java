@@ -5,16 +5,16 @@ import java.util.Map;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
 
 import java.io.Serializable;
 
 /**
- * Entity with JPA. Cart is stored in a H2 database.
+ * Singleton Entity with JPA. Cart is stored in a H2 database.
  * 
  * @author Blanca AT
  **/
@@ -25,33 +25,35 @@ public class Cart implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	private static Cart cartInstance;
+	
 	@Id
 	@Column (name = "ID")
-	protected int id;
-	
-	/* Entire products will not be stored in the cart DB, but ther ID (name) and the quantity added to the
-	 * cart will be stored
-	 */
+	private int id = 1;
 	
 	@ElementCollection
 	@CollectionTable(name="CART_PRODUCTS", joinColumns = @JoinColumn(name = "cart_id"))
 	// Key: Name of Product; Value: Quantity of products 
-	protected Map<String, String> products = new HashMap<String, String>();
+	private Map<String, String> products;
 	
+	/**
+	 * Default constructor for JPA only.
+	 */
 	public Cart() {
 		
 	}
 	
-	public Cart(int id) {
-		this.id = id;
+	// Private constructor because is Singleton
+	private Cart(Map<String, String> products) {
+		this.products = products;
 	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	
+	public static Cart getCartInstance() {
+		if (cartInstance == null) {
+			Map<String, String> products = new HashMap<>();		
+			cartInstance = new Cart(products);
+		}
+		return cartInstance;
 	}
 
 	public Map<String, String> getProducts() {
@@ -64,8 +66,7 @@ public class Cart implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", products=" + products + "]";
+		return "Cart [products=" + products + "]";
 	}
-	
 
 }

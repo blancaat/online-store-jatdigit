@@ -17,42 +17,39 @@ import javax.persistence.Table;
 @Table(name = "T_PRODUCT")
 public class Product implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "NAME")
-	protected String name;
+	private String name;
 	
 	@Column(name = "TITLE")
-	protected String title;
+	private String title;
 	
 	@Column(name = "QUANTITY")
-	protected int quantity;
+	private int quantity;
 	
 	@Column(name = "PRICE")
-	protected double price;
+	private double price;
 	
 	@Column(name = "DESCRIPTION")
-	protected String description;
+	private String description;
 	
 	@Column(name = "DETAILS")
-	protected String details;
+	private String details;
 	
 	@Column(name = "MEASURE")
-	protected String measure;
+	private String measure;
 	
 	@Column(name = "COLLECTION")
-	protected String collection;
+	private String collection;
 	
 	
 
 	/**
 	 * Default constructor for JPA only.
 	 */
-	protected Product() {
+	public Product() {
 		
 	}
 
@@ -139,5 +136,4 @@ public class Product implements Serializable {
 				+ ", description=" + description + ", details=" + details + ", measure=" + measure + ", collection="
 				+ collection + "]";
 	}	
-
 }

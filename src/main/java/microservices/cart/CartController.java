@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CartController {
-	protected CartRepository cartRepository;
+	private CartRepository cartRepository;
 
 	/**
-	 * Create an instance plugging in the repository of Cart.
+	 * Create an instance of the Cart repository.
 	 * 
 	 * @param productRepository
 	 *           
@@ -38,8 +38,7 @@ public class CartController {
 	
 	@RequestMapping("/cart")
 	public Cart getCart() {
-		Cart cart = cartRepository.findById(1);
-		return cart;
+		return Cart.getCartInstance();
 	}
 	
 	/**
@@ -51,11 +50,10 @@ public class CartController {
 	
 	@PostMapping("/cart/add")
 	public void addProduct(@RequestBody ArrayList<String> data) {
-		Cart cart = cartRepository.findById(1);
 		String name = data.get(0); // key
 		String quantity = data.get(1); // value
-		cart.getProducts().put(name, quantity);	
-		cartRepository.save(cart);
+		Cart.getCartInstance().getProducts().put(name, quantity);	
+		cartRepository.save(Cart.getCartInstance());
 	}
 	
 	/**
@@ -66,9 +64,7 @@ public class CartController {
 	 */
 	@PostMapping("/cart/delete")
 	public void deleteProduct(@RequestBody String name) {
-		Cart cart = cartRepository.findById(1);
-		cart.getProducts().remove(name);	
-		cartRepository.save(cart);
+		Cart.getCartInstance().getProducts().remove(name);	
+		cartRepository.save(Cart.getCartInstance());
 	}
-			
 }

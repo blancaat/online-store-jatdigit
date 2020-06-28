@@ -1,4 +1,4 @@
-package microservices.services.web;
+package microservices.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

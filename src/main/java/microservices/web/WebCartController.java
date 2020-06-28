@@ -1,8 +1,7 @@
-package microservices.services.web;
+package microservices.web;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,12 +24,8 @@ import org.springframework.http.HttpStatus;
 public class WebCartController {
 
 	@Autowired
-	protected WebCartService cartService;
-	protected WebProductsService productsService;
-
-
-	protected Logger logger = Logger.getLogger(WebProductsController.class
-			.getName());
+	private WebCartService cartService;
+	private WebProductsService productsService;
 
 	public WebCartController(WebCartService cartService, WebProductsService productsService) {
 		this.cartService = cartService;
@@ -71,8 +66,6 @@ public class WebCartController {
 		// Cart microservice modify their stock
 		cartService.addProduct(name, quant);	
 	}
-	
-	
 	
 	@RequestMapping(value = "/cart/delete/{name}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)

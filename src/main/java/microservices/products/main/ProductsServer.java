@@ -1,13 +1,11 @@
-package microservices.services.products;
+package microservices.products.main;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import org.springframework.context.annotation.Import;
 
-import microservices.products.ProductRepository;
 import microservices.products.ProductsConfiguration;
 
 /**
@@ -21,8 +19,6 @@ import microservices.products.ProductsConfiguration;
 
 public class ProductsServer {
 
-	@Autowired
-	protected ProductRepository productRepository;
 	/**
 	 * Run the application using Spring Boot
 	 * 
@@ -35,6 +31,4 @@ public class ProductsServer {
 		System.setProperty("spring.config.name", "products-server");
 		SpringApplication.run(ProductsServer.class, args);
 	}
-
-   
 }

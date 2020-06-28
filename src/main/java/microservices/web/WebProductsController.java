@@ -1,6 +1,5 @@
-package microservices.services.web;
+package microservices.web;
 
-import microservices.services.web.Product;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import microservices.web.Product;
 
 /**
  * Client controller, fetches Products info from the microservice via
@@ -20,10 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class WebProductsController {
 
 	@Autowired
-	protected WebProductsService productsService;
-
-	protected Logger logger = Logger.getLogger(WebProductsController.class
-			.getName());
+	private WebProductsService productsService;
 
 	public WebProductsController(WebProductsService productsService) {
 		this.productsService = productsService;

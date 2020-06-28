@@ -1,32 +1,27 @@
-package microservices.services.web;
+package microservices.web;
 
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
- * Cart DTO - used to interact with the {@link WebCartService}.
+ * Cart Data Transfer Object. Transfer data between processes
+ * used to interact with the {@link WebCartService}.
+ * 
  * 
  * @author Blanca AT
  */
 
 @JsonRootName("Cart")
 public class Cart {
-	protected int id;
-	protected Map<String, String> products;
+	private Map<String, String> products;
 	
-	protected Cart() {
-		
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	/**
+	 * Default constructor only for JPA.
+	 */
+	public Cart() {}
+	
+	
 	public Map<String, String> getProducts() {
 		return products;
 	}
@@ -37,7 +32,6 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", products=" + products + "]";
+		return "Cart [products=" + products + "]";
 	}
-	
 }

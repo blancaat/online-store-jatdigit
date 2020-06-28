@@ -2,10 +2,10 @@ package microservices.main;
 
 import java.net.InetAddress;
 
-import microservices.services.products.ProductsServer;
-import microservices.services.cart.CartServer;
-import microservices.services.registration.RegistrationServer;
-import microservices.services.web.WebServer;
+import microservices.cart.main.CartServer;
+import microservices.products.main.ProductsServer;
+import microservices.registration.main.RegistrationServer;
+import microservices.web.main.WebServer;
 
 /**
  * Allow the servers to be invoked from the command-line. 

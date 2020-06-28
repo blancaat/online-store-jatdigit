@@ -9,14 +9,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 
-public interface CartRepository extends JpaRepository<Cart, Integer>{
-	
-	/**
-	 * Find a cart with the specified cart name.
-	 *
-	 * @param id
-	 * @return The cart if found, null otherwise.
-	 */
-	Cart findById(int id);
-	
-}
+public interface CartRepository extends JpaRepository<Cart,Integer> {}
