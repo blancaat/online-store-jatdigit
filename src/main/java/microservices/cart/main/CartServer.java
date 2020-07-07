@@ -28,6 +28,7 @@ public class CartServer implements CommandLineRunner{
 	 * 
 	 * @param args
 	 *            Program arguments - ignored.
+	 * @throws UnknownHostException 
 	 */
 	
 	public static void main(String[] args) {

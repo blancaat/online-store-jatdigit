@@ -18,8 +18,8 @@ server.port: 4444   # HTTP (Tomcat) port
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
-     #defaultZone: http://${registration.server.hostname}:1111/eureka/
+     # defaultZone: http://localhost:1111/eureka/
+     defaultZone: http://${registration.server.hostname}:1111/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 15   
 

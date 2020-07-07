@@ -1,0 +1,19 @@
+# API Gateway Zuul properties
+
+zuul:
+  routes:
+      greetings: 
+        path: /*jatdigit/**
+        serviceId: WEB-SERVICE
+        stripPrefix: false
+ 
+ 
+server:
+  port: 8080 #HTTP (Tomcat) Port
+  
+eureka:
+    client: 
+        registerWithEureka: false
+        serviceUrl:
+            defaultZone: http://localhost:1111/eureka/
+    #  defaultZone: http://${registration.server.hostname}:1111/eureka/

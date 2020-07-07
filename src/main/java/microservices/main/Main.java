@@ -1,6 +1,7 @@
 package microservices.main;
 
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 import microservices.cart.main.CartServer;
 import microservices.products.main.ProductsServer;
@@ -17,7 +18,7 @@ public class Main {
 
     public static final String NO_VALUE = "NO-VALUE";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnknownHostException {
 
         String serverName = NO_VALUE;
 

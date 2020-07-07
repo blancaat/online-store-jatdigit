@@ -1,5 +1,7 @@
 package microservices.web.main;
 
+import java.net.UnknownHostException;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -36,6 +38,7 @@ public class WebServer {
      * Run the application using Spring Boot
      * 
      * @param args Program arguments - ignored.
+     * @throws UnknownHostException 
      */
     public static void main(String[] args) {
 		// Configuration according to web-server.yml

@@ -1,5 +1,7 @@
 package microservices.products.main;
 
+import java.net.UnknownHostException;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -24,6 +26,7 @@ public class ProductsServer {
 	 * 
 	 * @param args
 	 *            Program arguments - ignored.
+	 * @throws UnknownHostException 
 	 */
 	
 	public static void main(String[] args) {
