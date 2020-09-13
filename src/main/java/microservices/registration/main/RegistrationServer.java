@@ -22,7 +22,6 @@ public class RegistrationServer {
      * Run the application using Spring Boot
      * 
      * @param args Program arguments - ignored.
-     * @throws UnknownHostException 
      */
 	
     public static void main(String[] args) {
