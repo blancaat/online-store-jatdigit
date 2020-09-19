@@ -1,6 +1,6 @@
 # online-store-microservices
 Website dedicated to the sale of jewellery based on microservices. Developed with Spring Boot 2.1.10 and Spring Cloud Greenwich.
-![Architecture](https://https://github.com/BlancaAsensio/online-store-microservices/blob/master/arquitectura.jpg)
+![Architecture](https://github.com/BlancaAsensio/online-store-microservices/blob/master/arquitectura.jpg)
 
 · Service Discovery: registry where all microservices configurations are stored.
 · Products Server: responsible for storing and managing all store products and providing through a REST API all the operations necessary for the web.
