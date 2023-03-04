@@ -1,5 +1,5 @@
 # online-store-microservices
-A microservices e-commerced dedicated to the sale of jewellery. Developed with Spring Boot 2.1.10 and Spring Cloud Greenwich.
+A microservices online store dedicated to the sale of jewellery. Developed with Spring Boot 2.1.10 and Spring Cloud Greenwich.
 
 ![Architecture](https://github.com/BlancaAsensio/online-store-microservices/blob/master/arquitectura.jpg)
 
